@@ -1,0 +1,4801 @@
+/*this file is currently commented out while I try to figure out exactly why Bag_Schoolbag_Dirt can't be placed. 
+The current uncommented version of this bag can be found on DODExtraBags.txt
+
+module Base 
+{   
+    item Bag_Schoolbag_Dirt
+        {
+        DisplayCategory = Bag,
+        Weight=1,
+        Type=Drainable,
+        UseWhileEquipped=FALSE,
+        UseDelta=0.25,
+        DisplayName=School Bag of Dirt,
+        IconsForTexture = Backpack_Black;Backpack_Blue;Backpack_Spiffo, /* no icon and results in a trace error when placed in world */
+        /* Icon=Backpack_Spiffo, /* this works but you always get the same backpack */
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        CanBeEquipped = Back, 
+        OpenSound   =   OpenBag, 
+        CloseSound   =   CloseBag,
+        PutInSound   =   PutItemInBag,
+        ClothingItem = Bag_SchoolBag,
+        BloodLocation = Bag,
+        RunSpeedModifier = 0.97, 
+        AttachmentReplacement = Bag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        SoundParameter = EquippedBaggageContainer SchoolBag,
+        Tags = _DirtContainer,
+    }
+    item Bag_Schoolbag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_Schoolbag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_Schoolbag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _FertilizerContainer,
+    }    
+        item Bag_WeaponBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WeaponBag,
+        ReplaceInSecondHand = Bag_WeaponBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WeaponBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_WeaponBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WeaponBag,
+        ReplaceInSecondHand = Bag_WeaponBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WeaponBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_WeaponBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WeaponBag,
+        ReplaceInSecondHand = Bag_WeaponBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WeaponBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_WeaponBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WeaponBag,
+        ReplaceInSecondHand = Bag_WeaponBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WeaponBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_Military_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = DuffelbagMilitary,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Military,
+        ReplaceInSecondHand = Bag_Military_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Military_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_Military_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = DuffelbagMilitary,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Military,
+        ReplaceInSecondHand = Bag_Military_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Military_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_Military_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = DuffelbagMilitary,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Military,
+        ReplaceInSecondHand = Bag_Military_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Military_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_Military_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = DuffelbagMilitary,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Military,
+        ReplaceInSecondHand = Bag_Military_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Military_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Suitcase_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.25,
+        WeightReduction	= 50,
+        Weight	= 3,
+        DisplayName = Suitcase of Dirt,
+        Icon = Suitcase,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Suitcase,
+        ReplaceInSecondHand = Suitcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Suitcase_RHand holdingbagright,
+        WorldStaticModel = Suitcase_Ground,
+        Tags = _DirtContainer,
+    }
+    item Suitcase_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.25,
+        WeightReduction	= 50,
+        Weight	= 3,
+        DisplayName = Suitcase of Gravel,
+        Icon = Suitcase,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Suitcase,
+        ReplaceInSecondHand = Suitcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Suitcase_RHand holdingbagright,
+        WorldStaticModel = Suitcase_Ground,
+        Tags = _GravelContainer,
+    }
+    item Suitcase_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.25,
+        WeightReduction	= 50,
+        Weight	= 3,
+        DisplayName = Suitcase of Sand,
+        Icon = Suitcase,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Suitcase,
+        ReplaceInSecondHand = Suitcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Suitcase_RHand holdingbagright,
+        WorldStaticModel = Suitcase_Ground,
+        Tags = _SandContainer,
+    }
+    item Suitcase_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.25,
+        WeightReduction	= 50,
+        Weight	= 3,
+        DisplayName = Suitcase of Fertilizer,
+        Icon = Suitcase,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Suitcase,
+        ReplaceInSecondHand = Suitcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Suitcase_RHand holdingbagright,
+        WorldStaticModel = Suitcase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    
+    item Bag_Satchel_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 30,
+        Weight	= 1,
+        DisplayName = Satchel of Dirt,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Satchel,
+        ReplaceInSecondHand = Bag_Satchel_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Satchel_RHand holdingbagright,
+        WorldStaticModel = Satchel_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_Satchel_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 30,
+        Weight	= 1,
+        DisplayName = Satchel of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Satchel,
+        ReplaceInSecondHand = Bag_Satchel_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Satchel_RHand holdingbagright,
+        WorldStaticModel = Satchel_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_Satchel_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 30,
+        Weight	= 1,
+        DisplayName = Satchel of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Satchel,
+        ReplaceInSecondHand = Bag_Satchel_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Satchel_RHand holdingbagright,
+        WorldStaticModel = Satchel_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_Satchel_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 30,
+        Weight	= 1,
+        DisplayName = Satchel of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Satchel,
+        ReplaceInSecondHand = Bag_Satchel_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Satchel_RHand holdingbagright,
+        WorldStaticModel = Satchel_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_SurvivorBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Dirt,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_SurvivorBag,
+        ReplaceInSecondHand = Bag_SurvivorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_SurvivorBag_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_SurvivorBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Gravel,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_SurvivorBag,
+        ReplaceInSecondHand = Bag_SurvivorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_SurvivorBag_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_SurvivorBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Sand,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_SurvivorBag,
+        ReplaceInSecondHand = Bag_SurvivorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_SurvivorBag_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_SurvivorBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Fertilizer,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_SurvivorBag,
+        ReplaceInSecondHand = Bag_SurvivorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_SurvivorBag_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Tote_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 50,
+        Weight	= 0.5,
+        DisplayName = Tote Bag of Dirt,
+        Icon = Tote,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Tote,
+        ReplaceInSecondHand = Tote_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Tote_RHand holdingbagright,
+        WorldStaticModel = TotesBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Tote_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 50,
+        Weight	= 0.5,
+        DisplayName = Tote Bag of Gravel,
+        Icon = Tote,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Tote,
+        ReplaceInSecondHand = Tote_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Tote_RHand holdingbagright,
+        WorldStaticModel = TotesBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Tote_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 50,
+        Weight	= 0.5,
+        DisplayName = Tote Bag of Sand,
+        Icon = Tote,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Tote,
+        ReplaceInSecondHand = Tote_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Tote_RHand holdingbagright,
+        WorldStaticModel = TotesBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Tote_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 50,
+        Weight	= 0.5,
+        DisplayName = Tote Bag of Fertilizer,
+        Icon = Tote,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Tote,
+        ReplaceInSecondHand = Tote_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Tote_RHand holdingbagright,
+        WorldStaticModel = TotesBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_BowlingBallBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Bowling Ball Bag of Dirt,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BowlingBallBag,
+        ReplaceInSecondHand = Bag_BowlingBallBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BowlingBallBag_RHand holdingbagright,
+        WorldStaticModel = BowlingBallBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_BowlingBallBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Bowling Ball Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BowlingBallBag,
+        ReplaceInSecondHand = Bag_BowlingBallBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BowlingBallBag_RHand holdingbagright,
+        WorldStaticModel = BowlingBallBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_BowlingBallBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Bowling Ball Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BowlingBallBag,
+        ReplaceInSecondHand = Bag_BowlingBallBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BowlingBallBag_RHand holdingbagright,
+        WorldStaticModel = BowlingBallBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_BowlingBallBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Bowling Ball Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BowlingBallBag,
+        ReplaceInSecondHand = Bag_BowlingBallBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BowlingBallBag_RHand holdingbagright,
+        WorldStaticModel = BowlingBallBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Lunchbox2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Dirt,
+        Icon = Lunchbox02,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox2,
+        ReplaceInSecondHand = Lunchbox2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox2_RHand holdingbagright,
+        WorldStaticModel = LunchBox2_Ground,
+        Tags = _DirtContainer,
+    }
+    item Lunchbox2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Gravel,
+        Icon = Lunchbox02,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox2,
+        ReplaceInSecondHand = Lunchbox2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox2_RHand holdingbagright,
+        WorldStaticModel = LunchBox2_Ground,
+        Tags = _GravelContainer,
+    }
+    item Lunchbox2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Sand,
+        Icon = Lunchbox02,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox2,
+        ReplaceInSecondHand = Lunchbox2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox2_RHand holdingbagright,
+        WorldStaticModel = LunchBox2_Ground,
+        Tags = _SandContainer,
+    }
+    item Lunchbox2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Fertilizer,
+        Icon = Lunchbox02,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox2,
+        ReplaceInSecondHand = Lunchbox2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox2_RHand holdingbagright,
+        WorldStaticModel = LunchBox2_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_DuffelBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBag,
+        ReplaceInSecondHand = Bag_DuffelBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_DuffelBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBag,
+        ReplaceInSecondHand = Bag_DuffelBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_DuffelBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBag,
+        ReplaceInSecondHand = Bag_DuffelBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_DuffelBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBag,
+        ReplaceInSecondHand = Bag_DuffelBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_GolfBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1.2000000476837158,
+        DisplayName = Golf Bag of Dirt,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_GolfBag,
+        ReplaceInSecondHand = Bag_GolfBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_GolfBag_RHand holdingbagright,
+        WorldStaticModel = GolfBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_GolfBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1.2000000476837158,
+        DisplayName = Golf Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_GolfBag,
+        ReplaceInSecondHand = Bag_GolfBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_GolfBag_RHand holdingbagright,
+        WorldStaticModel = GolfBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_GolfBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1.2000000476837158,
+        DisplayName = Golf Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_GolfBag,
+        ReplaceInSecondHand = Bag_GolfBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_GolfBag_RHand holdingbagright,
+        WorldStaticModel = GolfBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_GolfBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1.2000000476837158,
+        DisplayName = Golf Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_GolfBag,
+        ReplaceInSecondHand = Bag_GolfBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_GolfBag_RHand holdingbagright,
+        WorldStaticModel = GolfBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item PaperBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Dirt,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PaperBag,
+        ReplaceInSecondHand = PaperBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PaperBag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _DirtContainer,
+    }
+    item PaperBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Gravel,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PaperBag,
+        ReplaceInSecondHand = PaperBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PaperBag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _GravelContainer,
+    }
+    item PaperBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Sand,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PaperBag,
+        ReplaceInSecondHand = PaperBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PaperBag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _SandContainer,
+    }
+    item PaperBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Fertilizer,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PaperBag,
+        ReplaceInSecondHand = PaperBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PaperBag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ToolBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ToolBag,
+        ReplaceInSecondHand = Bag_ToolBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ToolBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ToolBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ToolBag,
+        ReplaceInSecondHand = Bag_ToolBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ToolBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ToolBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ToolBag,
+        ReplaceInSecondHand = Bag_ToolBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ToolBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ToolBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ToolBag,
+        ReplaceInSecondHand = Bag_ToolBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ToolBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Garbagebag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Garbage Bag of Dirt,
+        Icon = Garbagebag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Garbagebag,
+        ReplaceInSecondHand = Garbagebag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Garbagebag_RHand holdingbagright,
+        WorldStaticModel = GarbageBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Garbagebag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Garbage Bag of Gravel,
+        Icon = Garbagebag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Garbagebag,
+        ReplaceInSecondHand = Garbagebag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Garbagebag_RHand holdingbagright,
+        WorldStaticModel = GarbageBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Garbagebag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Garbage Bag of Sand,
+        Icon = Garbagebag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Garbagebag,
+        ReplaceInSecondHand = Garbagebag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Garbagebag_RHand holdingbagright,
+        WorldStaticModel = GarbageBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Garbagebag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Garbage Bag of Fertilizer,
+        Icon = Garbagebag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Garbagebag,
+        ReplaceInSecondHand = Garbagebag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Garbagebag_RHand holdingbagright,
+        WorldStaticModel = GarbageBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RevolverCase3_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase3,
+        ReplaceInSecondHand = RevolverCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RevolverCase3_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase3,
+        ReplaceInSecondHand = RevolverCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RevolverCase3_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase3,
+        ReplaceInSecondHand = RevolverCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RevolverCase3_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase3,
+        ReplaceInSecondHand = RevolverCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Plasticbag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Plasticbag,
+        ReplaceInSecondHand = Plasticbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Plasticbag_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Plasticbag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Plasticbag,
+        ReplaceInSecondHand = Plasticbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Plasticbag_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Plasticbag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Plasticbag,
+        ReplaceInSecondHand = Plasticbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Plasticbag_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Plasticbag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Plasticbag,
+        ReplaceInSecondHand = Plasticbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Plasticbag_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_FoodSnacks_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodSnacks,
+        ReplaceInSecondHand = Bag_FoodSnacks_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodSnacks_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_FoodSnacks_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodSnacks,
+        ReplaceInSecondHand = Bag_FoodSnacks_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodSnacks_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_FoodSnacks_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodSnacks,
+        ReplaceInSecondHand = Bag_FoodSnacks_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodSnacks_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_FoodSnacks_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodSnacks,
+        ReplaceInSecondHand = Bag_FoodSnacks_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodSnacks_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_DuffelBagTINT_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = DuffelBagWhite,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBagTINT,
+        ReplaceInSecondHand = Bag_DuffelBagTINT_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBagTINT_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_DuffelBagTINT_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = DuffelBagWhite,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBagTINT,
+        ReplaceInSecondHand = Bag_DuffelBagTINT_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBagTINT_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_DuffelBagTINT_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = DuffelBagWhite,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBagTINT,
+        ReplaceInSecondHand = Bag_DuffelBagTINT_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBagTINT_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_DuffelBagTINT_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = DuffelBagWhite,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DuffelBagTINT,
+        ReplaceInSecondHand = Bag_DuffelBagTINT_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DuffelBagTINT_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RevolverCase2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase2,
+        ReplaceInSecondHand = RevolverCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RevolverCase2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase2,
+        ReplaceInSecondHand = RevolverCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RevolverCase2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase2,
+        ReplaceInSecondHand = RevolverCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RevolverCase2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase2,
+        ReplaceInSecondHand = RevolverCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RevolverCase1_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase1,
+        ReplaceInSecondHand = RevolverCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RevolverCase1_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase1,
+        ReplaceInSecondHand = RevolverCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RevolverCase1_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase1,
+        ReplaceInSecondHand = RevolverCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RevolverCase1_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RevolverCase1,
+        ReplaceInSecondHand = RevolverCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RevolverCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Toolbox_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Dirt,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Toolbox,
+        ReplaceInSecondHand = Toolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Toolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _DirtContainer,
+    }
+    item Toolbox_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Gravel,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Toolbox,
+        ReplaceInSecondHand = Toolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Toolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _GravelContainer,
+    }
+    item Toolbox_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Sand,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Toolbox,
+        ReplaceInSecondHand = Toolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Toolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _SandContainer,
+    }
+    item Toolbox_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Fertilizer,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Toolbox,
+        ReplaceInSecondHand = Toolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Toolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item GroceryBag2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag2,
+        ReplaceInSecondHand = GroceryBag2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag2_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item GroceryBag2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag2,
+        ReplaceInSecondHand = GroceryBag2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag2_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item GroceryBag2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag2,
+        ReplaceInSecondHand = GroceryBag2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag2_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item GroceryBag2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag2,
+        ReplaceInSecondHand = GroceryBag2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag2_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item GroceryBag1_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag1,
+        ReplaceInSecondHand = GroceryBag1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag1_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item GroceryBag1_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag1,
+        ReplaceInSecondHand = GroceryBag1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag1_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item GroceryBag1_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag1,
+        ReplaceInSecondHand = GroceryBag1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag1_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item GroceryBag1_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag1,
+        ReplaceInSecondHand = GroceryBag1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag1_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item GroceryBag5_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag5,
+        ReplaceInSecondHand = GroceryBag5_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag5_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item GroceryBag5_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag5,
+        ReplaceInSecondHand = GroceryBag5_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag5_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item GroceryBag5_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag5,
+        ReplaceInSecondHand = GroceryBag5_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag5_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item GroceryBag5_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag5,
+        ReplaceInSecondHand = GroceryBag5_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag5_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item GroceryBag4_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag4,
+        ReplaceInSecondHand = GroceryBag4_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag4_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item GroceryBag4_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag4,
+        ReplaceInSecondHand = GroceryBag4_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag4_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item GroceryBag4_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag4,
+        ReplaceInSecondHand = GroceryBag4_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag4_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item GroceryBag4_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag4,
+        ReplaceInSecondHand = GroceryBag4_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag4_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item GroceryBag3_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Dirt,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag3,
+        ReplaceInSecondHand = GroceryBag3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag3_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item GroceryBag3_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Gravel,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag3,
+        ReplaceInSecondHand = GroceryBag3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag3_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item GroceryBag3_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Sand,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag3,
+        ReplaceInSecondHand = GroceryBag3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag3_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _SandContainer,
+    }
+    item GroceryBag3_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Plastic Bag of Fertilizer,
+        Icon = Plasticbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = GroceryBag3,
+        ReplaceInSecondHand = GroceryBag3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = GroceryBag3_RHand holdingbagright,
+        WorldStaticModel = PlasticBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Paperbag_Spiffos_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Dirt,
+        Icon = Paperbag_Spiffos,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Spiffos,
+        ReplaceInSecondHand = Paperbag_Spiffos_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Spiffos_RHand holdingbagright,
+        WorldStaticModel = PaperbagSpiffo_Ground,
+        Tags = _DirtContainer,
+    }
+    item Paperbag_Spiffos_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Gravel,
+        Icon = Paperbag_Spiffos,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Spiffos,
+        ReplaceInSecondHand = Paperbag_Spiffos_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Spiffos_RHand holdingbagright,
+        WorldStaticModel = PaperbagSpiffo_Ground,
+        Tags = _GravelContainer,
+    }
+    item Paperbag_Spiffos_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Sand,
+        Icon = Paperbag_Spiffos,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Spiffos,
+        ReplaceInSecondHand = Paperbag_Spiffos_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Spiffos_RHand holdingbagright,
+        WorldStaticModel = PaperbagSpiffo_Ground,
+        Tags = _SandContainer,
+    }
+    item Paperbag_Spiffos_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Fertilizer,
+        Icon = Paperbag_Spiffos,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Spiffos,
+        ReplaceInSecondHand = Paperbag_Spiffos_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Spiffos_RHand holdingbagright,
+        WorldStaticModel = PaperbagSpiffo_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_FoodCanned_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodCanned,
+        ReplaceInSecondHand = Bag_FoodCanned_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodCanned_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_FoodCanned_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodCanned,
+        ReplaceInSecondHand = Bag_FoodCanned_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodCanned_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_FoodCanned_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodCanned,
+        ReplaceInSecondHand = Bag_FoodCanned_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodCanned_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_FoodCanned_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_FoodCanned,
+        ReplaceInSecondHand = Bag_FoodCanned_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_FoodCanned_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item ShotgunCase2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase2,
+        ReplaceInSecondHand = ShotgunCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item ShotgunCase2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase2,
+        ReplaceInSecondHand = ShotgunCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item ShotgunCase2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase2,
+        ReplaceInSecondHand = ShotgunCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item ShotgunCase2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase2,
+        ReplaceInSecondHand = ShotgunCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item ShotgunCase1_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase1,
+        ReplaceInSecondHand = ShotgunCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item ShotgunCase1_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase1,
+        ReplaceInSecondHand = ShotgunCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item ShotgunCase1_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase1,
+        ReplaceInSecondHand = ShotgunCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item ShotgunCase1_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = ShotgunCase1,
+        ReplaceInSecondHand = ShotgunCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = ShotgunCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_InmateEscapedBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_InmateEscapedBag,
+        ReplaceInSecondHand = Bag_InmateEscapedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_InmateEscapedBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_InmateEscapedBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_InmateEscapedBag,
+        ReplaceInSecondHand = Bag_InmateEscapedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_InmateEscapedBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_InmateEscapedBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_InmateEscapedBag,
+        ReplaceInSecondHand = Bag_InmateEscapedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_InmateEscapedBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_InmateEscapedBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_InmateEscapedBag,
+        ReplaceInSecondHand = Bag_InmateEscapedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_InmateEscapedBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Flightcase_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Flight Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Flightcase,
+        ReplaceInSecondHand = Flightcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Flightcase_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item Flightcase_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Flight Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Flightcase,
+        ReplaceInSecondHand = Flightcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Flightcase_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item Flightcase_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Flight Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Flightcase,
+        ReplaceInSecondHand = Flightcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Flightcase_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item Flightcase_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Flight Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Flightcase,
+        ReplaceInSecondHand = Flightcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Flightcase_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Briefcase_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Briefcase of Dirt,
+        Icon = Briefcase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Briefcase,
+        ReplaceInSecondHand = Briefcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Briefcase_RHand holdingbagright,
+        WorldStaticModel = Briefcase_Ground,
+        Tags = _DirtContainer,
+    }
+    item Briefcase_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Briefcase of Gravel,
+        Icon = Briefcase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Briefcase,
+        ReplaceInSecondHand = Briefcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Briefcase_RHand holdingbagright,
+        WorldStaticModel = Briefcase_Ground,
+        Tags = _GravelContainer,
+    }
+    item Briefcase_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Briefcase of Sand,
+        Icon = Briefcase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Briefcase,
+        ReplaceInSecondHand = Briefcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Briefcase_RHand holdingbagright,
+        WorldStaticModel = Briefcase_Ground,
+        Tags = _SandContainer,
+    }
+    item Briefcase_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Briefcase of Fertilizer,
+        Icon = Briefcase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Briefcase,
+        ReplaceInSecondHand = Briefcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Briefcase_RHand holdingbagright,
+        WorldStaticModel = Briefcase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Paperbag_Jays_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Dirt,
+        Icon = Paperbag_Jays,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Jays,
+        ReplaceInSecondHand = Paperbag_Jays_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Jays_RHand holdingbagright,
+        WorldStaticModel = PaperbagJays_Ground,
+        Tags = _DirtContainer,
+    }
+    item Paperbag_Jays_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Gravel,
+        Icon = Paperbag_Jays,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Jays,
+        ReplaceInSecondHand = Paperbag_Jays_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Jays_RHand holdingbagright,
+        WorldStaticModel = PaperbagJays_Ground,
+        Tags = _GravelContainer,
+    }
+    item Paperbag_Jays_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Sand,
+        Icon = Paperbag_Jays,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Jays,
+        ReplaceInSecondHand = Paperbag_Jays_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Jays_RHand holdingbagright,
+        WorldStaticModel = PaperbagJays_Ground,
+        Tags = _SandContainer,
+    }
+    item Paperbag_Jays_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Paper Bag of Fertilizer,
+        Icon = Paperbag_Jays,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Paperbag_Jays,
+        ReplaceInSecondHand = Paperbag_Jays_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Paperbag_Jays_RHand holdingbagright,
+        WorldStaticModel = PaperbagJays_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item SewingKit_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Sewing Kit of Dirt,
+        Icon = SewingBox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SewingKit,
+        ReplaceInSecondHand = SewingKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SewingKit_RHand holdingbagright,
+        WorldStaticModel = SewingKit,
+        Tags = _DirtContainer,
+    }
+    item SewingKit_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Sewing Kit of Gravel,
+        Icon = SewingBox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SewingKit,
+        ReplaceInSecondHand = SewingKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SewingKit_RHand holdingbagright,
+        WorldStaticModel = SewingKit,
+        Tags = _GravelContainer,
+    }
+    item SewingKit_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Sewing Kit of Sand,
+        Icon = SewingBox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SewingKit,
+        ReplaceInSecondHand = SewingKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SewingKit_RHand holdingbagright,
+        WorldStaticModel = SewingKit,
+        Tags = _SandContainer,
+    }
+    item SewingKit_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Sewing Kit of Fertilizer,
+        Icon = SewingBox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SewingKit,
+        ReplaceInSecondHand = SewingKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SewingKit_RHand holdingbagright,
+        WorldStaticModel = SewingKit,
+        Tags = _FertilizerContainer,
+    }
+    item Handbag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 40,
+        Weight	= 1,
+        DisplayName = Handbag of Dirt,
+        Icon = Purseblack,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Handbag,
+        ReplaceInSecondHand = Handbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Handbag_RHand holdingbagright,
+        WorldStaticModel = Handbag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Handbag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 40,
+        Weight	= 1,
+        DisplayName = Handbag of Gravel,
+        Icon = Purseblack,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Handbag,
+        ReplaceInSecondHand = Handbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Handbag_RHand holdingbagright,
+        WorldStaticModel = Handbag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Handbag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 40,
+        Weight	= 1,
+        DisplayName = Handbag of Sand,
+        Icon = Purseblack,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Handbag,
+        ReplaceInSecondHand = Handbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Handbag_RHand holdingbagright,
+        WorldStaticModel = Handbag_Ground,
+        Tags = _SandContainer,
+    }
+    item Handbag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 40,
+        Weight	= 1,
+        DisplayName = Handbag of Fertilizer,
+        Icon = Purseblack,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Handbag,
+        ReplaceInSecondHand = Handbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Handbag_RHand holdingbagright,
+        WorldStaticModel = Handbag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Purse_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 55,
+        Weight	= 0.5,
+        DisplayName = Purse of Dirt,
+        Icon = Purse,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Purse,
+        ReplaceInSecondHand = Purse_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Purse_RHand holdingbagright,
+        WorldStaticModel = Purse_Ground,
+        Tags = _DirtContainer,
+    }
+    item Purse_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 55,
+        Weight	= 0.5,
+        DisplayName = Purse of Gravel,
+        Icon = Purse,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Purse,
+        ReplaceInSecondHand = Purse_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Purse_RHand holdingbagright,
+        WorldStaticModel = Purse_Ground,
+        Tags = _GravelContainer,
+    }
+    item Purse_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 55,
+        Weight	= 0.5,
+        DisplayName = Purse of Sand,
+        Icon = Purse,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Purse,
+        ReplaceInSecondHand = Purse_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Purse_RHand holdingbagright,
+        WorldStaticModel = Purse_Ground,
+        Tags = _SandContainer,
+    }
+    item Purse_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 55,
+        Weight	= 0.5,
+        DisplayName = Purse of Fertilizer,
+        Icon = Purse,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Purse,
+        ReplaceInSecondHand = Purse_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Purse_RHand holdingbagright,
+        WorldStaticModel = Purse_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_MoneyBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MoneyBag,
+        ReplaceInSecondHand = Bag_MoneyBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MoneyBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_MoneyBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MoneyBag,
+        ReplaceInSecondHand = Bag_MoneyBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MoneyBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_MoneyBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MoneyBag,
+        ReplaceInSecondHand = Bag_MoneyBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MoneyBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_MoneyBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MoneyBag,
+        ReplaceInSecondHand = Bag_MoneyBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MoneyBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ShotgunSawnoffBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ShotgunSawnoffBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ShotgunSawnoffBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ShotgunSawnoffBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item BucketTypeContainer_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 24,
+        Weight	= 1,
+        DisplayName = Bucket (Container) of Dirt,
+        Icon = MetalBucket,
+        MetalValue = 20,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = BucketTypeContainer,
+        ReplaceInSecondHand = BucketTypeContainer_LHand holdingbagleft,
+        ReplaceInPrimaryHand = BucketTypeContainer_RHand holdingbagright,
+        WorldStaticModel = Bucket_Ground,
+        Tags = _DirtContainer,
+    }
+    item BucketTypeContainer_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 24,
+        Weight	= 1,
+        DisplayName = Bucket (Container) of Gravel,
+        Icon = MetalBucket,
+        MetalValue = 20,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = BucketTypeContainer,
+        ReplaceInSecondHand = BucketTypeContainer_LHand holdingbagleft,
+        ReplaceInPrimaryHand = BucketTypeContainer_RHand holdingbagright,
+        WorldStaticModel = Bucket_Ground,
+        Tags = _GravelContainer,
+    }
+    item BucketTypeContainer_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 24,
+        Weight	= 1,
+        DisplayName = Bucket (Container) of Sand,
+        Icon = MetalBucket,
+        MetalValue = 20,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = BucketTypeContainer,
+        ReplaceInSecondHand = BucketTypeContainer_LHand holdingbagleft,
+        ReplaceInPrimaryHand = BucketTypeContainer_RHand holdingbagright,
+        WorldStaticModel = Bucket_Ground,
+        Tags = _SandContainer,
+    }
+    item BucketTypeContainer_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.3333333333333333,
+        WeightReduction	= 24,
+        Weight	= 1,
+        DisplayName = Bucket (Container) of Fertilizer,
+        Icon = MetalBucket,
+        MetalValue = 20,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = BucketTypeContainer,
+        ReplaceInSecondHand = BucketTypeContainer_LHand holdingbagleft,
+        ReplaceInPrimaryHand = BucketTypeContainer_RHand holdingbagright,
+        WorldStaticModel = Bucket_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Lunchbox_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Dirt,
+        Icon = Lunchbox01,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox,
+        ReplaceInSecondHand = Lunchbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox_RHand holdingbagright,
+        WorldStaticModel = LunchBox_Ground,
+        Tags = _DirtContainer,
+    }
+    item Lunchbox_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Gravel,
+        Icon = Lunchbox01,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox,
+        ReplaceInSecondHand = Lunchbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox_RHand holdingbagright,
+        WorldStaticModel = LunchBox_Ground,
+        Tags = _GravelContainer,
+    }
+    item Lunchbox_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Sand,
+        Icon = Lunchbox01,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox,
+        ReplaceInSecondHand = Lunchbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox_RHand holdingbagright,
+        WorldStaticModel = LunchBox_Ground,
+        Tags = _SandContainer,
+    }
+    item Lunchbox_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = Lunchbox of Fertilizer,
+        Icon = Lunchbox01,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbox,
+        ReplaceInSecondHand = Lunchbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbox_RHand holdingbagright,
+        WorldStaticModel = LunchBox_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ShotgunBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunBag,
+        ReplaceInSecondHand = Bag_ShotgunBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ShotgunBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunBag,
+        ReplaceInSecondHand = Bag_ShotgunBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ShotgunBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunBag,
+        ReplaceInSecondHand = Bag_ShotgunBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ShotgunBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunBag,
+        ReplaceInSecondHand = Bag_ShotgunBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_WorkerBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WorkerBag,
+        ReplaceInSecondHand = Bag_WorkerBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WorkerBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_WorkerBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WorkerBag,
+        ReplaceInSecondHand = Bag_WorkerBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WorkerBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_WorkerBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WorkerBag,
+        ReplaceInSecondHand = Bag_WorkerBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WorkerBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_WorkerBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_WorkerBag,
+        ReplaceInSecondHand = Bag_WorkerBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_WorkerBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_DoctorBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Doctor Bag of Dirt,
+        Icon = DoctorBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DoctorBag,
+        ReplaceInSecondHand = Bag_DoctorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DoctorBag_RHand holdingbagright,
+        WorldStaticModel = DoctorBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_DoctorBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Doctor Bag of Gravel,
+        Icon = DoctorBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DoctorBag,
+        ReplaceInSecondHand = Bag_DoctorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DoctorBag_RHand holdingbagright,
+        WorldStaticModel = DoctorBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_DoctorBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Doctor Bag of Sand,
+        Icon = DoctorBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DoctorBag,
+        ReplaceInSecondHand = Bag_DoctorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DoctorBag_RHand holdingbagright,
+        WorldStaticModel = DoctorBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_DoctorBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Doctor Bag of Fertilizer,
+        Icon = DoctorBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_DoctorBag,
+        ReplaceInSecondHand = Bag_DoctorBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_DoctorBag_RHand holdingbagright,
+        WorldStaticModel = DoctorBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ALICEpack_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Dirt,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack,
+        ReplaceInSecondHand = Bag_ALICEpack_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ALICEpack_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Gravel,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack,
+        ReplaceInSecondHand = Bag_ALICEpack_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ALICEpack_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Sand,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack,
+        ReplaceInSecondHand = Bag_ALICEpack_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ALICEpack_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14814814814814814,
+        WeightReduction	= 85,
+        Weight	= 2,
+        DisplayName = Large Backpack of Fertilizer,
+        Icon = AliceBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack,
+        ReplaceInSecondHand = Bag_ALICEpack_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ShotgunDblBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblBag,
+        ReplaceInSecondHand = Bag_ShotgunDblBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ShotgunDblBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblBag,
+        ReplaceInSecondHand = Bag_ShotgunDblBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ShotgunDblBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblBag,
+        ReplaceInSecondHand = Bag_ShotgunDblBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ShotgunDblBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblBag,
+        ReplaceInSecondHand = Bag_ShotgunDblBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item SeedBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Seed Bag of Dirt,
+        Icon = DrawstringBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SeedBag,
+        ReplaceInSecondHand = SeedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SeedBag_RHand holdingbagright,
+        WorldStaticModel = SeedBag,
+        Tags = _DirtContainer,
+    }
+    item SeedBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Seed Bag of Gravel,
+        Icon = DrawstringBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SeedBag,
+        ReplaceInSecondHand = SeedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SeedBag_RHand holdingbagright,
+        WorldStaticModel = SeedBag,
+        Tags = _GravelContainer,
+    }
+    item SeedBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Seed Bag of Sand,
+        Icon = DrawstringBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SeedBag,
+        ReplaceInSecondHand = SeedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SeedBag_RHand holdingbagright,
+        WorldStaticModel = SeedBag,
+        Tags = _SandContainer,
+    }
+    item SeedBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 30,
+        Weight	= 0.10000000149011612,
+        DisplayName = Seed Bag of Fertilizer,
+        Icon = DrawstringBag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = SeedBag,
+        ReplaceInSecondHand = SeedBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = SeedBag_RHand holdingbagright,
+        WorldStaticModel = SeedBag,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_MedicalBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Trauma Bag of Dirt,
+        Icon = DuffelbagMedical,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MedicalBag,
+        ReplaceInSecondHand = Bag_MedicalBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MedicalBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_MedicalBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Trauma Bag of Gravel,
+        Icon = DuffelbagMedical,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MedicalBag,
+        ReplaceInSecondHand = Bag_MedicalBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MedicalBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_MedicalBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Trauma Bag of Sand,
+        Icon = DuffelbagMedical,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MedicalBag,
+        ReplaceInSecondHand = Bag_MedicalBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MedicalBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_MedicalBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Trauma Bag of Fertilizer,
+        Icon = DuffelbagMedical,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_MedicalBag,
+        ReplaceInSecondHand = Bag_MedicalBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_MedicalBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ShotgunDblSawnoffBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Dirt,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunDblSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ShotgunDblSawnoffBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Gravel,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunDblSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ShotgunDblSawnoffBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Sand,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunDblSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ShotgunDblSawnoffBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2222222222222222,
+        WeightReduction	= 65,
+        Weight	= 1,
+        DisplayName = Duffel Bag of Fertilizer,
+        Icon = Duffelbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ShotgunDblSawnoffBag,
+        ReplaceInSecondHand = Bag_ShotgunDblSawnoffBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ShotgunDblSawnoffBag_RHand holdingbagright,
+        WorldStaticModel = DuffelBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_ALICEpack_Army_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14285714285714285,
+        WeightReduction	= 87,
+        Weight	= 2,
+        DisplayName = Military Backpack of Dirt,
+        Icon = AliceBag_Camo,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack_Army,
+        ReplaceInSecondHand = Bag_ALICEpack_Army_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_Army_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_ALICEpack_Army_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14285714285714285,
+        WeightReduction	= 87,
+        Weight	= 2,
+        DisplayName = Military Backpack of Gravel,
+        Icon = AliceBag_Camo,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack_Army,
+        ReplaceInSecondHand = Bag_ALICEpack_Army_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_Army_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_ALICEpack_Army_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14285714285714285,
+        WeightReduction	= 87,
+        Weight	= 2,
+        DisplayName = Military Backpack of Sand,
+        Icon = AliceBag_Camo,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack_Army,
+        ReplaceInSecondHand = Bag_ALICEpack_Army_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_Army_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_ALICEpack_Army_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.14285714285714285,
+        WeightReduction	= 87,
+        Weight	= 2,
+        DisplayName = Military Backpack of Fertilizer,
+        Icon = AliceBag_Camo,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_ALICEpack_Army,
+        ReplaceInSecondHand = Bag_ALICEpack_Army_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_ALICEpack_Army_RHand holdingbagright,
+        WorldStaticModel = ALICE_Pack_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item PistolCase3_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase3,
+        ReplaceInSecondHand = PistolCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item PistolCase3_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase3,
+        ReplaceInSecondHand = PistolCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item PistolCase3_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase3,
+        ReplaceInSecondHand = PistolCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item PistolCase3_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase3,
+        ReplaceInSecondHand = PistolCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase3_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item PistolCase2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase2,
+        ReplaceInSecondHand = PistolCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item PistolCase2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase2,
+        ReplaceInSecondHand = PistolCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item PistolCase2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase2,
+        ReplaceInSecondHand = PistolCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item PistolCase2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase2,
+        ReplaceInSecondHand = PistolCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase2_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item PistolCase1_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Dirt,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase1,
+        ReplaceInSecondHand = PistolCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item PistolCase1_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Gravel,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase1,
+        ReplaceInSecondHand = PistolCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item PistolCase1_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Sand,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase1,
+        ReplaceInSecondHand = PistolCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _SandContainer,
+    }
+    item PistolCase1_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 0.5,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = PistolCase,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = PistolCase1,
+        ReplaceInSecondHand = PistolCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = PistolCase1_RHand holdingbagright,
+        WorldStaticModel = GunCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Lunchbag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Lunchbag of Dirt,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbag,
+        ReplaceInSecondHand = Lunchbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Lunchbag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Lunchbag of Gravel,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbag,
+        ReplaceInSecondHand = Lunchbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Lunchbag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Lunchbag of Sand,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbag,
+        ReplaceInSecondHand = Lunchbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _SandContainer,
+    }
+    item Lunchbag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 10,
+        Weight	= 0.10000000149011612,
+        DisplayName = Lunchbag of Fertilizer,
+        Icon = Paperbag,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Lunchbag,
+        ReplaceInSecondHand = Lunchbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Lunchbag_RHand holdingbagright,
+        WorldStaticModel = Paperbag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Guitarcase_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Guitar Case of Dirt,
+        Icon = GuitarCase01,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Guitarcase,
+        ReplaceInSecondHand = Guitarcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Guitarcase_RHand holdingbagright,
+        WorldStaticModel = ClassicGuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item Guitarcase_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Guitar Case of Gravel,
+        Icon = GuitarCase01,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Guitarcase,
+        ReplaceInSecondHand = Guitarcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Guitarcase_RHand holdingbagright,
+        WorldStaticModel = ClassicGuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item Guitarcase_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Guitar Case of Sand,
+        Icon = GuitarCase01,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Guitarcase,
+        ReplaceInSecondHand = Guitarcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Guitarcase_RHand holdingbagright,
+        WorldStaticModel = ClassicGuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item Guitarcase_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.8,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Guitar Case of Fertilizer,
+        Icon = GuitarCase01,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Guitarcase,
+        ReplaceInSecondHand = Guitarcase_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Guitarcase_RHand holdingbagright,
+        WorldStaticModel = ClassicGuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RifleCase3_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase3,
+        ReplaceInSecondHand = RifleCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase3_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RifleCase3_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase3,
+        ReplaceInSecondHand = RifleCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase3_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RifleCase3_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase3,
+        ReplaceInSecondHand = RifleCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase3_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RifleCase3_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase3,
+        ReplaceInSecondHand = RifleCase3_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase3_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RifleCase2_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase2,
+        ReplaceInSecondHand = RifleCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RifleCase2_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase2,
+        ReplaceInSecondHand = RifleCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RifleCase2_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase2,
+        ReplaceInSecondHand = RifleCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RifleCase2_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase2,
+        ReplaceInSecondHand = RifleCase2_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase2_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_JanitorToolbox_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Dirt,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_JanitorToolbox,
+        ReplaceInSecondHand = Bag_JanitorToolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_JanitorToolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_JanitorToolbox_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Gravel,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_JanitorToolbox,
+        ReplaceInSecondHand = Bag_JanitorToolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_JanitorToolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_JanitorToolbox_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Sand,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_JanitorToolbox,
+        ReplaceInSecondHand = Bag_JanitorToolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_JanitorToolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_JanitorToolbox_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 15,
+        Weight	= 2,
+        DisplayName = Toolbox of Fertilizer,
+        Icon = Toolbox,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_JanitorToolbox,
+        ReplaceInSecondHand = Bag_JanitorToolbox_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_JanitorToolbox_RHand holdingbagright,
+        WorldStaticModel = ToolBox_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item RifleCase1_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Dirt,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase1,
+        ReplaceInSecondHand = RifleCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _DirtContainer,
+    }
+    item RifleCase1_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Gravel,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase1,
+        ReplaceInSecondHand = RifleCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _GravelContainer,
+    }
+    item RifleCase1_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Sand,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase1,
+        ReplaceInSecondHand = RifleCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _SandContainer,
+    }
+    item RifleCase1_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5714285714285714,
+        WeightReduction	= 20,
+        Weight	= 1,
+        DisplayName = Gun Case of Fertilizer,
+        Icon = GuitarCase02,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = RifleCase1,
+        ReplaceInSecondHand = RifleCase1_LHand holdingbagleft,
+        ReplaceInPrimaryHand = RifleCase1_RHand holdingbagright,
+        WorldStaticModel = GuitarCase_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Cooler_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Cooler of Dirt,
+        Icon = Cooler,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Cooler,
+        ReplaceInSecondHand = Cooler_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Cooler_RHand holdingbagright,
+        WorldStaticModel = Cooler_Ground,
+        Tags = _DirtContainer,
+    }
+    item Cooler_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Cooler of Gravel,
+        Icon = Cooler,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Cooler,
+        ReplaceInSecondHand = Cooler_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Cooler_RHand holdingbagright,
+        WorldStaticModel = Cooler_Ground,
+        Tags = _GravelContainer,
+    }
+    item Cooler_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Cooler of Sand,
+        Icon = Cooler,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Cooler,
+        ReplaceInSecondHand = Cooler_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Cooler_RHand holdingbagright,
+        WorldStaticModel = Cooler_Ground,
+        Tags = _SandContainer,
+    }
+    item Cooler_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.5,
+        WeightReduction	= 5,
+        Weight	= 1.5,
+        DisplayName = Cooler of Fertilizer,
+        Icon = Cooler,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Cooler,
+        ReplaceInSecondHand = Cooler_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Cooler_RHand holdingbagright,
+        WorldStaticModel = Cooler_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item FirstAidKit_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = First Aid Kit of Dirt,
+        Icon = FirstAid,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = FirstAidKit,
+        ReplaceInSecondHand = FirstAidKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = FirstAidKit_RHand holdingbagright,
+        WorldStaticModel = LunchBoxMedic_Ground,
+        Tags = _DirtContainer,
+    }
+    item FirstAidKit_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = First Aid Kit of Gravel,
+        Icon = FirstAid,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = FirstAidKit,
+        ReplaceInSecondHand = FirstAidKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = FirstAidKit_RHand holdingbagright,
+        WorldStaticModel = LunchBoxMedic_Ground,
+        Tags = _GravelContainer,
+    }
+    item FirstAidKit_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = First Aid Kit of Sand,
+        Icon = FirstAid,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = FirstAidKit,
+        ReplaceInSecondHand = FirstAidKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = FirstAidKit_RHand holdingbagright,
+        WorldStaticModel = LunchBoxMedic_Ground,
+        Tags = _SandContainer,
+    }
+    item FirstAidKit_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
+        WeightReduction	= 5,
+        Weight	= 1,
+        DisplayName = First Aid Kit of Fertilizer,
+        Icon = FirstAid,
+        MetalValue = 15,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = FirstAidKit,
+        ReplaceInSecondHand = FirstAidKit_LHand holdingbagleft,
+        ReplaceInPrimaryHand = FirstAidKit_RHand holdingbagright,
+        WorldStaticModel = LunchBoxMedic_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_BigHikingBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.18181818181818182,
+        WeightReduction	= 80,
+        Weight	= 1.5,
+        DisplayName = Big Hiking Bag of Dirt,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BigHikingBag,
+        ReplaceInSecondHand = Bag_BigHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BigHikingBag_RHand holdingbagright,
+        WorldStaticModel = BigHikingBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_BigHikingBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.18181818181818182,
+        WeightReduction	= 80,
+        Weight	= 1.5,
+        DisplayName = Big Hiking Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BigHikingBag,
+        ReplaceInSecondHand = Bag_BigHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BigHikingBag_RHand holdingbagright,
+        WorldStaticModel = BigHikingBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_BigHikingBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.18181818181818182,
+        WeightReduction	= 80,
+        Weight	= 1.5,
+        DisplayName = Big Hiking Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BigHikingBag,
+        ReplaceInSecondHand = Bag_BigHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BigHikingBag_RHand holdingbagright,
+        WorldStaticModel = BigHikingBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_BigHikingBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.18181818181818182,
+        WeightReduction	= 80,
+        Weight	= 1.5,
+        DisplayName = Big Hiking Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_BigHikingBag,
+        ReplaceInSecondHand = Bag_BigHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_BigHikingBag_RHand holdingbagright,
+        WorldStaticModel = BigHikingBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+    item Bag_NormalHikingBag_Dirt
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 70,
+        Weight	= 1.2000000476837158,
+        DisplayName = Hiking Bag of Dirt,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_NormalHikingBag,
+        ReplaceInSecondHand = Bag_NormalHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_NormalHikingBag_RHand holdingbagright,
+        WorldStaticModel = HikingBag_Ground,
+        Tags = _DirtContainer,
+    }
+    item Bag_NormalHikingBag_Gravel
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 70,
+        Weight	= 1.2000000476837158,
+        DisplayName = Hiking Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_NormalHikingBag,
+        ReplaceInSecondHand = Bag_NormalHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_NormalHikingBag_RHand holdingbagright,
+        WorldStaticModel = HikingBag_Ground,
+        Tags = _GravelContainer,
+    }
+    item Bag_NormalHikingBag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 70,
+        Weight	= 1.2000000476837158,
+        DisplayName = Hiking Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_NormalHikingBag,
+        ReplaceInSecondHand = Bag_NormalHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_NormalHikingBag_RHand holdingbagright,
+        WorldStaticModel = HikingBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_NormalHikingBag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.2,
+        WeightReduction	= 70,
+        Weight	= 1.2000000476837158,
+        DisplayName = Hiking Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_NormalHikingBag,
+        ReplaceInSecondHand = Bag_NormalHikingBag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_NormalHikingBag_RHand holdingbagright,
+        WorldStaticModel = HikingBag_Ground,
+        Tags = _FertilizerContainer,
+    }
+}
+*/

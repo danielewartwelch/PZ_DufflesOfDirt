@@ -1,0 +1,42 @@
+module Base {
+    item Bag_Schoolbag_Dirt
+        {
+        DisplayCategory = Bag,
+        Weight=1,
+        Type=Drainable,
+        UseWhileEquipped=FALSE,
+        UseDelta=0.25,
+        DisplayName=School Bag of Dirt,
+        IconsForTexture = Backpack_Black;Backpack_Blue;Backpack_Spiffo, /* no icon and results in a trace error when placed in world */
+        /* Icon=Backpack_Spiffo, /* this works but you always get the same backpack */
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        CanBeEquipped = Back, 
+        OpenSound   =   OpenBag, 
+        CloseSound   =   CloseBag,
+        PutInSound   =   PutItemInBag,
+        ClothingItem = Bag_SchoolBag,
+        BloodLocation = Bag,
+        RunSpeedModifier = 0.97, 
+        AttachmentReplacement = Bag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        SoundParameter = EquippedBaggageContainer SchoolBag,
+        Tags = _DirtContainer,
+    } 
+
+    /************************ Models ************************/
+    /* these were added last minute to see if it would make a difference. They did not. */
+    model SchoolBag
+    {
+        mesh = skinned\backpacks\m_schoolbag,
+        texture = schoolbag_black,
+    }
+    model SchoolBag_Ground
+    {
+        mesh = WorldItems/Clothing/SchoolBag_Ground,
+        texure = schoolbag_blue,
+        scale = 0.4,
+    }
+}

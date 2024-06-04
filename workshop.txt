@@ -1,0 +1,7 @@
+version=1
+title=Mod Template
+description=Fill ya bags with dirt. Dig up the world!
+description=
+description=
+tags=
+visibility=private

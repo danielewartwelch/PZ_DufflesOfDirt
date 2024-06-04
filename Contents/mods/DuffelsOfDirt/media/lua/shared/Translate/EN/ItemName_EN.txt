@@ -1,0 +1,2 @@
+ItemName_Base.Bag_Schoolbag_Dirt = "School Bag of Dirt"
+
