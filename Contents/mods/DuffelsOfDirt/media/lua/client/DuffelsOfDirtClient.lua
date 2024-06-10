@@ -1,10 +1,12 @@
 
-if getActivatedMods():contains("BucketMultipurpose") == true then
+--[[if getActivatedMods():contains("BucketMultipurpose") == true then
     print("M's Multipurpose Buckets detected, using that digging code instead")
     require("BucketMultipurpose")
 
 else
     print("M's Multipurpose Buckets is not installed, importing necessary digging code")
+
+--]]
 
     local Items = {}
     Items.ModOptions = {}
@@ -178,7 +180,6 @@ else
         getCell():setDrag(ISFarmingMenu.cursor, playerObj:getPlayerNum())
     end
 
-    --[[
     ---Radial Menu
     Items.Items_RadialMenuView = ISBaseObject:derive("Items_RadialMenuView")
     local RadialMenuView  = Items.Items_RadialMenuView
@@ -343,7 +344,7 @@ else
         end
     end
 
-    --]]
+    
 
     -- cursor is in server file, make sure it's loaded
     -- inherit from edited class // likely to break with vanilla - mod changes
@@ -382,11 +383,13 @@ else
 
                 -- FIXME: server should manage the player's inventory
                 if self.emptyBag:hasTag("_EmptySolidContainer") then --change here!
+                    local bag_texture = self.emptyBag:getTexture()
                     local isPrimary = self.character:isPrimaryHandItem(self.emptyBag)
                     local isSecondary = self.character:isSecondaryHandItem(self.emptyBag)
                     self.character:removeFromHands(self.emptyBag);
                     self.character:getInventory():Remove(self.emptyBag);
                     local item = self.character:getInventory():AddItem(self.emptyBag:getReplaceType(self.info.sourceType)) --change here!
+                    item:setTexture(bag_texture)
                     if item ~= nil then
                         item:setUsedDelta(item:getUseDelta())
                         if isPrimary then
@@ -436,7 +439,9 @@ else
 
             function cursor:getEmptyItem()
                 local playerInv = self.character:getInventory()
+                --if this item can fit another unit
                 local item = playerInv:getBestEvalRecurse(function(item) return item:hasTag(self.tag) and item:getUsedDelta() + item:getUseDelta() <= 1 end, comparatorMostFull)
+                --otherwise determine what to turn item into
                 if not item then item = playerInv:getFirstEvalRecurse(function(item) return item:hasTag("_EmptySolidContainer") and item:hasReplaceType(self.info.sourceType) end) end
                 return item
                 --return "Base.Dirtbag",item --"string used as table key for name to set jobType in start"
@@ -447,7 +452,6 @@ else
                 local square = getWorld():getCell():getGridSquare(x, y, z)
                 local groundType,object = self:getDirtGravelSand(square)
                 local emptyItem = self:getEmptyItem()
-                --local fullType,emptyItem = self:getEmptyItem()
                 if luautils.walkAdj(playerObj, square, true) then
                     ISWorldObjectContextMenu.transferIfNeeded(playerObj, emptyItem)
                     ISWorldObjectContextMenu.equip(playerObj, playerObj:getPrimaryHandItem(), predicateDirtToolNotBroken, true, false)
@@ -622,8 +626,6 @@ else
     Events.OnGameStart.Add(OnGameStart)
     Events.OnFillWorldObjectContextMenu.Add(OnFillWorldObjectContextMenu)
 
-
-
     --[[
     if getDebug() then
         if not ModOptions then radialKey = { key = Keyboard.KEY_T, delay = 250 } end
@@ -639,4 +641,6 @@ else
     end
 
     return Items
-end
+
+--artifact from yielding to Ms Buckets. Can't do that any more. 
+--end

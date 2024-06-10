@@ -7,8 +7,8 @@ module Base {
         UseWhileEquipped=FALSE,
         UseDelta=0.25,
         DisplayName=School Bag of Dirt,
-        IconsForTexture = Backpack_Black;Backpack_Blue;Backpack_Spiffo, /* no icon and results in a trace error when placed in world */
-        /* Icon=Backpack_Spiffo, /* this works but you always get the same backpack */
+        /* IconsForTexture = Backpack_Black;Backpack_Blue;Backpack_Spiffo, /* no icon and results in a trace error when placed in world */
+        Icon=Backpack_Spiffo, /* this works but you always get the same backpack */
         CanHaveHoles = false,
         ReplaceOnDeplete = Bag_Schoolbag,
         CanBeEquipped = Back, 

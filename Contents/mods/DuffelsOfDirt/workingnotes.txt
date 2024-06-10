@@ -6,12 +6,57 @@ print(prefixLoc)
 jobTypePrefix = string.sub(item, 1, prefixLoc)
 print(jobTypePrefix)
 
-
-
 --[[TEST PLAN
     - test with actual sacks
     - test with several types of added bags    
 --]]
+
+
+--[[ HOW TO CHANGE TEXTURE FROM DRAINABLE TO Container
+        - click "pour dirt" in context menu: ISInventoryBuildMenu.onSpillDirt = function(playerObj)
+            - create dirtbag variable which determines which bag we'll be pouring out of
+            - ISNaturalFloor:new("blends_natural_01_64","blends_natural_01_64", dirtBag, playerObj)
+        - ISNaturalFloor:new(sprite, northSprite, item, character)
+            - creates an object including the bag to spill from, the player number, and the craftingbank
+            - o:init()
+                - ISBuildingObject:init() 
+                    - not really sure what this is trying to accomplish
+                    - ISBuildingObject:reset()
+                        - nils and falsifies a bunch of things 
+            - o:setSprite()
+            - setNorthSprite()
+            - ISNaturalfloor:getFloorType(item)
+                - uses item to determine what it material type to put down 
+            -ISNaturalFloor ends        
+
+        - ISBaseTimedaction:Create()
+            - set how long it will take
+            - this seems to already be aware of craftingBank = "DropSoilFromDirtBag"
+        -ISBaseTimedAction:adjustMaxTime(MaxTime)
+            -adjust how long the job takes according to various factors including mood and wounds
+            - returns maxtime
+        - ISBaseTimedACtion:begin()
+            - creates and starts action 
+            - begin action calls ISBuildAction:isValid()
+            - ISBuildAction:isValid() confirms user can dump soil here 
+            - ISBuildAction:waitToStart() turns character if needed
+            - ISBuildAction:start() 
+                - checks if tools are needed
+                - if craftingbank is true then set craftingsound to zero?
+                - start building animation in ISBaseTimedAction:setActionAnim(_action, _displayItemModels)
+                -  ISBaseTimedAction:setActionAnim()
+                    - I think this checks to see if an item needs to be equipped (like a hammer) and equips it 
+                    - otherwise it just performs the animation
+                -- BuildActionStart ends
+            - ISBasedTimedAction:begin ends
+    - ISTimedActionQueue:addToQueue(action) ends
+    - ISTimedActionQueue.add returns the queue
+    - ISBuildingObject:tryBuild ends
+    - DoTileBuilding does something with draggingItem.build and draggingItem.dragNilAfterPlace
+    - DotileBuilding ends
+    - dirt is already dumped
+
+]]
 
 
 
