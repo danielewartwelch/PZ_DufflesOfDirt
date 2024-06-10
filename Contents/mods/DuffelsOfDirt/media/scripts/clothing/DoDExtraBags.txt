@@ -7,8 +7,7 @@ module Base {
         UseWhileEquipped=FALSE,
         UseDelta=0.25,
         DisplayName=School Bag of Dirt,
-        /* IconsForTexture = Backpack_Black;Backpack_Blue;Backpack_Spiffo, /* no icon and results in a trace error when placed in world */
-        Icon=Backpack_Spiffo, /* this works but you always get the same backpack */
+        Icon=Backpack_Spiffo,
         CanHaveHoles = false,
         ReplaceOnDeplete = Bag_Schoolbag,
         CanBeEquipped = Back, 
@@ -24,19 +23,60 @@ module Base {
         WorldStaticModel = SchoolBag_Ground,
         SoundParameter = EquippedBaggageContainer SchoolBag,
         Tags = _DirtContainer,
-    } 
-
-    /************************ Models ************************/
-    /* these were added last minute to see if it would make a difference. They did not. */
-    model SchoolBag
-    {
-        mesh = skinned\backpacks\m_schoolbag,
-        texture = schoolbag_black,
     }
-    model SchoolBag_Ground
+    item Bag_Schoolbag_Gravel
     {
-        mesh = WorldItems/Clothing/SchoolBag_Ground,
-        texure = schoolbag_blue,
-        scale = 0.4,
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Gravel,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _GravelContainer,
     }
+    item Bag_Schoolbag_Sand
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Sand,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _SandContainer,
+    }
+    item Bag_Schoolbag_Fertilizer
+    {
+        DisplayCategory = Container,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.26666666666666666,
+        WeightReduction	= 60,
+        Weight	= 1,
+        DisplayName = School Bag of Fertilizer,
+        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        MetalValue = 0,
+        RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
+        CanHaveHoles = false,
+        ReplaceOnDeplete = Bag_Schoolbag,
+        ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
+        ReplaceInPrimaryHand = Bag_Schoolbag_RHand holdingbagright,
+        WorldStaticModel = SchoolBag_Ground,
+        Tags = _FertilizerContainer,
+    }  
 }

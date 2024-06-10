@@ -1,8 +1,0 @@
-/* this file was added to see if Bag_Schoolbag_Dirt needed it's own texture reference in media/clothing/clothingItems/ 
-As of right now this doesn't seem to make any difference so I'm not sure if its necessary */
-<fileGuidTable>
-    <files>
-		<path>media/clothing/clothingItems/Bag_Schoolbag_Dirt.xml</path>
-		<guid>1bba5b1a-c6c6-4af7-ab69-43f583007160</guid>
-	</files>
-</fileGuidTable>
