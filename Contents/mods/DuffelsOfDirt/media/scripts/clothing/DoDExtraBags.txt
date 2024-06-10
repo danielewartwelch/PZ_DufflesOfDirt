@@ -33,7 +33,7 @@ module Base {
         WeightReduction	= 60,
         Weight	= 1,
         DisplayName = School Bag of Gravel,
-        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        Icon=Backpack_Spiffo,
         MetalValue = 0,
         RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
         ReplaceInSecondHand = Bag_Schoolbag_LHand holdingbagleft,
@@ -50,7 +50,7 @@ module Base {
         WeightReduction	= 60,
         Weight	= 1,
         DisplayName = School Bag of Sand,
-        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,
+        Icon=Backpack_Spiffo,
         MetalValue = 0,
         RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
         CanHaveHoles = false,
@@ -69,7 +69,7 @@ module Base {
         WeightReduction	= 60,
         Weight	= 1,
         DisplayName = School Bag of Fertilizer,
-        IconsForTexture = BigHiking_Blue;BigHiking_Green;BigHiking_Red,,
+        Icon=Backpack_Spiffo,
         MetalValue = 0,
         RunSpeedModifier = 1.00,  /*not implemented, might exist later*/
         CanHaveHoles = false,
